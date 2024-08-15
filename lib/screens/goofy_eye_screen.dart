@@ -14,31 +14,69 @@ class _GoofyEyeScreenState extends State<GoofyEyeScreen> {
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-        onHover: (event) {
-          setState(() {
-            mousePosition = event.localPosition;
-          });
-        },
-        child: Center(
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              // Eye
-              Container(
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.black, width: 5),
-                ),
-              ),
-              // Pupil
-              Pupil(mousePosition: mousePosition),
-            ],
+      onHover: (event) {
+        setState(() {
+          mousePosition = event.localPosition;
+        });
+      },
+      // this was only for one eye since I am adding two eyes I need to refactor and make some chanegs
+      // child: Center(
+      //   child: Stack(
+      //     alignment: Alignment.center,
+      //     children: [
+      //       // Eye
+      //       Container(
+      //         width: 100,
+      //         height: 100,
+      //         decoration: BoxDecoration(
+      //           color: Colors.white,
+      //           shape: BoxShape.circle,
+      //           border: Border.all(color: Colors.black, width: 5),
+      //         ),
+      //       ),
+      //       // Pupil
+      //       Pupil(mousePosition: mousePosition),
+      //     ],
+      //   ),
+      // ),
+      child: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GoofyEye(mousePosition: mousePosition),
+            const SizedBox(width: 50),
+            GoofyEye(mousePosition: mousePosition),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class GoofyEye extends StatelessWidget {
+  final Offset mousePosition;
+
+  const GoofyEye({super.key, required this.mousePosition});
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        // Eye
+        Container(
+          width: 100,
+          height: 100,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+            border: Border.all(color: Colors.black, width: 5),
           ),
         ),
-      );
+        // Pupil
+        Pupil(mousePosition: mousePosition),
+      ],
+    );
   }
 }
 
@@ -57,7 +95,7 @@ class Pupil extends StatelessWidget {
     final double dx = mousePosition.dx - eyeCenterX;
     final double dy = mousePosition.dy - eyeCenterY;
     final double angle = atan2(dy, dx);
-    const double maxDistance = 40.0;
+    const double maxDistance = 10.0;
 
     final double distance = min(sqrt(dx * dx + dy * dy), maxDistance);
 
@@ -70,8 +108,8 @@ class Pupil extends StatelessWidget {
     return Transform.translate(
       offset: pupilPosition,
       child: Container(
-        width: 50,
-        height: 50,
+        width: 30,
+        height: 30,
         decoration: const BoxDecoration(
           color: Colors.black,
           shape: BoxShape.circle,
