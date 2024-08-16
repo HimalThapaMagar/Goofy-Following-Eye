@@ -29,7 +29,6 @@ class _MyHomePageState extends State<MyHomePage> {
       //   child : GoofyEyeScreen(),
       // ),
       body:  Stack(
-          // alignment: Alignment.center,
           children: [
             Image.asset('images/Kungfupanda.jpg'),
             GoofyEyeScreen(),

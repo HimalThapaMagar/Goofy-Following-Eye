@@ -1,3 +1,4 @@
+// This code only works when the eye is in center and is the only the first or 10 I dunno iteration of the eye
 // import 'dart:math';
 // import 'package:flutter/material.dart';
 
