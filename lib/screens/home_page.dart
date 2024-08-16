@@ -14,27 +14,20 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Goofy Eye'),
-        actions: [
-          Row(
-            children: [
-              Text('Made by Goofy'),
-              GoofyEyeScreen(),
-              Text("eyes"),
-            ],
-          )
-        ],
+        // actions: [
+        //   Row(
+        //     children: [
+        //       const Text('Made by Goofy '),
+        //       GoofyEyeScreen(),
+        //     ],
+        //   )
+        // ],
       ),
-      // body: const GoofyEyeScreen(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Welcome to Goofy Eye',
-              style: TextStyle(fontSize: 20),
-            ),
-          ],
-        ),
+      // body: GoofyEyeScreen(),
+      body: 
+      Center(
+        child : GoofyEyeScreen(),
+       
       ),
     );
   }
