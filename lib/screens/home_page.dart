@@ -24,11 +24,17 @@ class _MyHomePageState extends State<MyHomePage> {
         // ],
       ),
       // body: GoofyEyeScreen(),
-      body: 
-      Center(
-        child : GoofyEyeScreen(),
-       
-      ),
+      // body: 
+      // Center(
+      //   child : GoofyEyeScreen(),
+      // ),
+      body:  Stack(
+          // alignment: Alignment.center,
+          children: [
+            Image.asset('images/Kungfupanda.jpg'),
+            GoofyEyeScreen(),
+          ],
+        ),
     );
   }
 }

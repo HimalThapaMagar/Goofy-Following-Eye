@@ -119,6 +119,7 @@
 //   }
 // }
 
+
 import 'dart:math';
 import 'package:flutter/material.dart';
 
@@ -143,13 +144,13 @@ class _GoofyEyeScreenState extends State<GoofyEyeScreen> {
       child: Stack(
         children: [
           Positioned(
-            top: 100, // Adjust this to move the eyes
-            // left: 100, // Adjust this to move the eyes
+            top: 135, // Adjust this to move the eyes
+            left: 197, // Adjust this to move the eyes
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 GoofyEye(mousePosition: mousePosition),
-                const SizedBox(width: 50), // Space between the two eyes
+                const SizedBox(width: 20), // Space between the two eyes
                 GoofyEye(mousePosition: mousePosition),
               ],
             ),
@@ -172,7 +173,7 @@ class GoofyEye extends StatelessWidget {
       children: [
         // Eye
         Container(
-          width: 100,
+          width: 70,
           height: 100,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -216,8 +217,8 @@ class Pupil extends StatelessWidget {
     return Transform.translate(
       offset: pupilPosition,
       child: Container(
-        width: 30,
-        height: 30,
+        width: 25,
+        height: 25,
         decoration: const BoxDecoration(
           color: Colors.black,
           shape: BoxShape.circle,
